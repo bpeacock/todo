@@ -11,7 +11,7 @@ var Item = function(todo, text) {
     .val(text)
     .appendTo(this.$wrapper);
 
-  this.$remove  = $('<button class="item-remove">X</button>').appendTo(this.$wrapper);
+  this.$remove  = $('<button class="item-remove">x</button>').appendTo(this.$wrapper);
 };
 
 Item.prototype = {
@@ -19,12 +19,8 @@ Item.prototype = {
     if(window.confirm('Are you sure you want to delete this to-do?')) {
       this.$wrapper.remove();
     }
-  },
-  dump: function() {
-    return {
-      complete: this.$check.is(':checked'),
-      text:     this.$input.val()
-    };
+
+    this.todo.focus();
   }
 };
 
@@ -33,16 +29,26 @@ $(function() {
     .on('click', '.item-remove', function() {
       $(this).closest('.item').data('item').remove();
     })
+    .on('keydown', '.item-input', function(e) {
+      if(e.keyCode == 13) {
+        $(this).blur();
+      }
+    })
+    .on('blur', '.item-input', function() {
+      $(this).closest('.item').data('item').todo.focus();
+    })
     .on('change', '.item-check', function() {
       var $this = $(this),
           $item = $this.closest('.item'),
-          $list = $item.data('item').todo.$list;
+          todo = $item.data('item').todo;
 
       if($this.is(':checked')) {
-        $list.append($item);
+        todo.$list.append($item);
       }
       else {
-        $list.prepend($item);
+        todo.$list.prepend($item);
       }
+
+      todo.focus();
     });
 });

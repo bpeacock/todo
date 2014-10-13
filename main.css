@@ -1,2 +1,60 @@
 /* Add CSS to make it pretty */
 
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
+}
+
+.todo {
+  color: #333;
+}
+
+.todo-input {
+
+}
+
+.todo-input:focus {
+  outline: none;
+}
+
+.todo-add {
+  background: blue;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.item-input {
+  border: none;
+}
+
+.item-input:focus {
+  outline: none;
+  border-bottom: 1px solid #CCC;
+}
+
+.item-remove {
+  display: none;
+  background: none;
+  border: none;
+  color: #666;
+}
+
+.item-remove:hover {
+  cursor: pointer;
+}
+
+.item-remove:focus {
+  outline: none;
+}
+
+.item:hover .item-remove {
+  display: inline;
+}

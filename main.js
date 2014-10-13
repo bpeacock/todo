@@ -3,6 +3,6 @@
 var todo = new Todo();
 
 $(function() {
-  console.log(todo);
   todo.$wrapper.appendTo('body');
+  todo.focus();
 });

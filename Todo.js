@@ -4,10 +4,10 @@ var Todo = function() {
   var self = this;
 
   /*** Cache ***/
-  this.$wrapper = $('<div class="todo-list">');
-  this.$input   = $('<input type="text" placeholder="Add new to-do">').appendTo(this.$wrapper);
-  this.$add     = $('<button>Add</button>').appendTo(this.$wrapper);
-  this.$list    = $('<ul>').appendTo(this.$wrapper);
+  this.$wrapper = $('<div class="todo">');
+  this.$input   = $('<input class="todo-input" type="text" placeholder="Add new to-do">').appendTo(this.$wrapper);
+  this.$add     = $('<button class="todo-add">Add</button>').appendTo(this.$wrapper);
+  this.$list    = $('<ul class="todo-list">').appendTo(this.$wrapper);
 
   /*** Bind Events ***/
   this.$add.click(function() {
@@ -38,9 +38,7 @@ Todo.prototype = {
         .focus();
     }
   },
-  dump: function() {
-    return this.$list.find('.item').map(function() {
-
-    });
+  focus: function() {
+    this.$input.focus();
   }
 };
