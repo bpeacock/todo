@@ -1,4 +1,4 @@
-Todo List Example
+To-do List Example
 -----------------
 
 ### Show the working example:
