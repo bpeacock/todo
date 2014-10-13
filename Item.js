@@ -40,7 +40,7 @@ $(function() {
     .on('change', '.item-check', function() {
       var $this = $(this),
           $item = $this.closest('.item'),
-          todo = $item.data('item').todo;
+          todo  = $item.data('item').todo;
 
       if($this.is(':checked')) {
         todo.$list.append($item);

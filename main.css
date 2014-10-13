@@ -48,6 +48,7 @@ body {
 .todo-list {
   list-style: none;
   padding: 0;
+  width: 255px;
 }
 
 /*** Items ***/
@@ -74,12 +75,13 @@ body {
 }
 
 .item-remove {
-  display: none;
+  opacity: 0;
   background: none;
   border: none;
   color: #666;
   vertical-align: top;
   padding: 3px;
+  font-size: 16px;
 }
 
 .item-remove:hover {
@@ -91,6 +93,5 @@ body {
 }
 
 .item:hover .item-remove {
-  display: inline;
-  font-size: 16px;
+  opacity: 1;
 }
