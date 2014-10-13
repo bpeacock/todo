@@ -4,12 +4,23 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
 }
 
+/*** Todo ***/
+
 .todo {
-  color: #333;
+  color: #444;
+  font-size: 18px;
 }
 
 .todo-input {
+  border: 1px solid #CCC;
+  border-right: none;
+  height: 34px;
+  padding: 0 10px;
+  font-size: 18px;
+  color: inherit;
 
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
 }
 
 .todo-input:focus {
@@ -17,13 +28,21 @@ body {
 }
 
 .todo-add {
-  background: blue;
+  background: #2476F5;
   border: none;
   color: #FFF;
+  font-size: 14px;
+  padding: 0 10px;
   cursor: pointer;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  height: 36px;
+  vertical-align: top;
+
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.todo-add:focus {
+  outline: none;
 }
 
 .todo-list {
@@ -31,8 +50,22 @@ body {
   padding: 0;
 }
 
+/*** Items ***/
+
+.item {
+  padding: 2px 0;
+}
+
+.item-check {
+  vertical-align: top;
+  margin: 5px;
+}
+
 .item-input {
   border: none;
+  color: inherit;
+  font-size: inherit;
+  width: 205px;
 }
 
 .item-input:focus {
@@ -45,6 +78,8 @@ body {
   background: none;
   border: none;
   color: #666;
+  vertical-align: top;
+  padding: 3px;
 }
 
 .item-remove:hover {
@@ -57,4 +92,5 @@ body {
 
 .item:hover .item-remove {
   display: inline;
+  font-size: 16px;
 }
