@@ -1,16 +1,24 @@
 /* Define the Item class here which will be used by the Todo class */
 
-var Item = function() {
+var Item = function(todo, text) {
+  this.todo = todo;
+
   this.$wrapper = $('<li class="item">').data('item', this);
 
   this.$check   = $('<input class="item-check" type="checkbox">').appendTo(this.$wrapper);
-  this.$input   = $('<input class="item-input" type="text">').appendTo(this.$wrapper);
+
+  this.$input   = $('<input class="item-input" type="text">')
+    .val(text)
+    .appendTo(this.$wrapper);
+
   this.$remove  = $('<button class="item-remove">X</button>').appendTo(this.$wrapper);
 };
 
 Item.prototype = {
-  focus: function() {
-    this.$input.focus();
+  remove: function() {
+    if(window.confirm('Are you sure you want to delete this to-do?')) {
+      this.$wrapper.remove();
+    }
   },
   dump: function() {
     return {
@@ -23,11 +31,18 @@ Item.prototype = {
 $(function() {
   $(document)
     .on('click', '.item-remove', function() {
-      $(this).closest('.item').remove();
+      $(this).closest('.item').data('item').remove();
     })
-    .on('keydown', '.item-input', function(e) {
-      if(e.keyCode == 8 || e.keyCode == 13) {
-        $(this).blur();
+    .on('change', '.item-check', function() {
+      var $this = $(this),
+          $item = $this.closest('.item'),
+          $list = $item.data('item').todo.$list;
+
+      if($this.is(':checked')) {
+        $list.append($item);
+      }
+      else {
+        $list.prepend($item);
       }
     });
 });

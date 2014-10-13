@@ -1,8 +1,8 @@
 /* This is where we will initialize the Todo object */
 
-var $wrapper = $('<div class="todo">'),
-    todo     = new Todo($wrapper);
+var todo = new Todo();
 
 $(function() {
-  $wrapper.appendTo('body');
+  console.log(todo);
+  todo.$wrapper.appendTo('body');
 });
